@@ -1,4 +1,4 @@
-///pickup_item(ittem, amount);
+///pickup_item(item, amount);
 var item = argument0;
 var amount = argument1;
 

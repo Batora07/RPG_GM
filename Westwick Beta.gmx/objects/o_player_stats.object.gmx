@@ -36,6 +36,7 @@ draw_health = stats[? "health"];
 // Items list
 items = ds_list_create();
 item_number = ds_list_create();
+pickup_item(o_data.items[? "potion"], 4);
 
 // Action list
 actions = ds_list_create();

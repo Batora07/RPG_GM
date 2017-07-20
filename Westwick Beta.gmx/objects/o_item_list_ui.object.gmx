@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>o_option_list_ui</parentName>
+  <parentName>o_scroll_option_list_ui</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,19 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Initialize the menu ai
+            <string>/// Initialize the list ui
 event_inherited();
-height = 76;
+width = 96;
+height = 64;
 
-// create the options list
-var option_index = 0;
-options[| option_index++] = create_option("Stats", say_hi);
-options[| option_index++] = create_option("Items", menu_option_items);
-options[| option_index++] = create_option("Save", say_hi);
-options[| option_index++] = create_option("Load", say_hi);
-options[| option_index++] = create_option("Exit", say_hi);
-
-mark_option_list(options);
+// Create the option list
+options = create_items_option_list();
 </string>
           </argument>
         </arguments>
