@@ -32,3 +32,11 @@ Here are a few examples of what I'm trying to achieve with this project :
 > **Data created with JSON**
 
 [![PLG05](img/img05.png)](img/img05.png)
+
+> **Multiple choices during fights**
+
+[![PLG07](img/img07.png)](img/img07.png)
+
+> **The player can fight and use items in combat**
+
+[![PLG06](img/img06.png)](img/img06.png)

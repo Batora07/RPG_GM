@@ -9,6 +9,6 @@ image_speed = get_image_speed_from_frames(frames, image_number);
 
 x = approach(x, targetx, spd);
 if (x  == targetx) {
-    state = battle_idle_state;
+    state = battle_wait_state;
     o_battle.play = true;
 }

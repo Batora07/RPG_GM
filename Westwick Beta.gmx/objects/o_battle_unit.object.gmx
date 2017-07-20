@@ -29,6 +29,7 @@
 action_meter = 0;
 max_action_meter = 100;
 item_index = 0;
+hitflash = false;
 
 // Set up the state
 state = battle_idle_state;
@@ -72,6 +73,30 @@ if (object_index == o_enemy_battle_unit) {
 // Stop the play and view stats
 o_battle.play = false;
 o_battle_view.state = battle_view_idle_state;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set hitflash to false
+hitflash = false;
 </string>
           </argument>
         </arguments>
@@ -127,6 +152,39 @@ with (stats_object) {
             <kind>1</kind>
             <string>/// Execute the current state
 script_execute(state);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw the character
+draw_self();
+if (hitflash) {
+    draw_set_blend_mode(bm_add);
+    d3d_set_fog(true, c_red, 0, 0);
+    draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, .75*image_alpha);
+    d3d_set_fog(true, c_yellow, 0, 0);
+    draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, .25*image_alpha);   
+    d3d_set_fog(false, c_white, 0, 0);
+    draw_set_blend_mode(bm_normal);
+}
 </string>
           </argument>
         </arguments>

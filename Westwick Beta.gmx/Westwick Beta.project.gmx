@@ -243,9 +243,13 @@
           <script>scripts\battle_idle_state.gml</script>
           <script>scripts\battle_approach_state.gml</script>
           <script>scripts\battle_use_item_state.gml</script>
+          <script>scripts\battle_wait_state.gml</script>
+          <script>scripts\battle_hit_state.gml</script>
+          <script>scripts\battle_death_state.gml</script>
         </scripts>
         <script>scripts\get_stats_from_class.gml</script>
         <script>scripts\calculate_health.gml</script>
+        <script>scripts\set_hitflash.gml</script>
       </scripts>
       <script>scripts\battle_set_sprite.gml</script>
     </scripts>
