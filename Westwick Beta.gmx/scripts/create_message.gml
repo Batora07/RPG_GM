@@ -4,7 +4,7 @@ var yy = argument1;
 var text = argument2;
 
 // Create the message ui
-var messag_ui = instance_create(xx, yy, o_message_ui);
+var message_ui = instance_create(xx, yy, o_message_ui);
 
 // Update the message ui
 with (message_ui) {

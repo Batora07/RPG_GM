@@ -102,6 +102,7 @@ if (o_input.back){
 if (o_input.action &amp;&amp; ds_list_size(options) &gt; 0) {
     var option = options[| index];
     script_execute(option[? "script"]);
+    o_input_action = false; // this makes sure that action is false so we don't create another item list
 }
 </string>
           </argument>
