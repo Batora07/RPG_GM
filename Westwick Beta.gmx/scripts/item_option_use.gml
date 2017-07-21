@@ -14,6 +14,7 @@ if (instance_exists(parent)) {
             if (instance_exists(o_menu_ui)) {
                 with (o_menu_ui) instance_destroy();
             }
+            instance_destroy();
         }
     }
 } 

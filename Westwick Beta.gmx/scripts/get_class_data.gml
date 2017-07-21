@@ -19,7 +19,7 @@ return json_decode('
         "defense": 4,
         "speed": 10,
         "critical": 5,
-        "experience": 10,
+        "experience": 20,
         "actions": ["attack", "defend"]
     }
 }');

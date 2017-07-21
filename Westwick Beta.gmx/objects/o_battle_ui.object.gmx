@@ -79,9 +79,10 @@ if (point_distance(x, y, x, 160) &lt;= 16 &amp;&amp; enabled) {
     if (o_input.action) {
         switch(index) {
             case ACTION :
-                if (instance_exists(o_player_battle_unit)) {
-                    o_player_battle_unit.state = battle_approach_state;
-                }             
+                enabled = false;
+                var action_list = instance_create(bbox_left+13, targety - sprite_height/2, o_action_list_ui);            
+                action_list.y -= action_list.height +4;
+                action_list.parent = id; 
             break;
                 
             case ITEM :

@@ -62,6 +62,9 @@ unit_ui.x -= unit_ui.sprite_width/2;
             <kind>1</kind>
             <string>/// Check to see if we are an enemy
 if (object_index == o_enemy_battle_unit) {
+    // add experience
+    o_player_stats.stats[? "experience"] += min(level/2, 1)*stats_object.stats[? "experience"]; 
+
     // Go to the last room
     var transition = instance_create(0, 0, o_fade_transition);
     transition.next_room = o_game.last_room;
@@ -184,6 +187,15 @@ if (hitflash) {
     draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, image_blend, .25*image_alpha);   
     d3d_set_fog(false, c_white, 0, 0);
     draw_set_blend_mode(bm_normal);
+}
+
+if (stats_object.defend) {
+    var input = current_time / (room_speed*2);
+    if (object_index == o_enemy_battle_unit) {
+        draw_sprite_ext(s_shield, 0, bbox_left, y-24+cos(input/4)*2, image_xscale,1, 0, c_white, 1);
+    } else {
+        draw_sprite_ext(s_shield, 0, bbox_right, y-24+cos(input/4+pi)*2, image_xscale,1, 0, c_white, 1);
+    }
 }
 </string>
           </argument>

@@ -32,6 +32,7 @@ class = o_data.classes[? "elizabeth"];
 // Get the stats from the class
 stats = get_stats_from_class("elizabeth");
 draw_health = stats[? "health"];
+defend = false;
 
 // Items list
 items = ds_list_create();
@@ -40,6 +41,9 @@ pickup_item(o_data.items[? "potion"], 4);
 
 // Action list
 actions = ds_list_create();
+var action_index = 0;
+actions[| action_index++] = o_data.actions[? "attack"];
+actions[| action_index++] = o_data.actions[? "defend"];
 </string>
           </argument>
         </arguments>
@@ -127,6 +131,11 @@ if (draw_health &lt;= 0){
 
 // Check for level up
 if (stats[? "experience"] &gt;= stats[? "maxExperience"]) {
+    // create the level up object
+    if (!instance_exists(o_levelup)){
+        instance_create(room_width-view_wview[0]/2, view_yview[0]+view_hview[0]/2, o_levelup);
+    }
+
     // Update the stats
     level++;
     stats[? "experience"] = stats[? "experience"]-stats[? "maxExperience"];

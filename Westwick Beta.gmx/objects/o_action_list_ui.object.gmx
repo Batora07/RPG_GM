@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>o_ui_parent</parentName>
+  <parentName>o_option_list_ui_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,85 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Initialize the options list
-event_inherited();
-index = 0;
-width = 64;
-height = 64;
+            <string>event_inherited();
+width = 80;
+height = 44;
 
 // create the options list
 options = ds_list_create();
-
-// set the player to the wait state
-if (instance_exists(o_elizabeth)){
-    o_elizabeth.state = elizabeth_wait_state;
+for (var i = 0; i &lt; ds_list_size(o_player_stats.actions); i++) {
+    var action = o_player_stats.actions[| i];
+    options[| i] = create_option(action[? "name"], action_option_use_ui);
 }
-
-// Color for non highlighted text
-purple_gray = make_colour_rgb(145,145,175);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Destroy the options list
-event_inherited();
-ds_list_destroy(options);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Navigate the options
-if (!enabled) exit;
-index += o_input.down_pressed - o_input.up_pressed;
-index = clamp(index, 0, ds_list_size(options)-1);
-
-// Exit the option list
-if (o_input.back){
-    instance_destroy();
-}
-
-// run the option
-if (o_input.action &amp;&amp; ds_list_size(options) &gt; 0) {
-    var option = options[| index];
-    script_execute(option[? "script"]);
-    o_input_action = false;
-}
+mark_option_list(options);
 </string>
           </argument>
         </arguments>
@@ -126,8 +58,22 @@ if (o_input.action &amp;&amp; ds_list_size(options) &gt; 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw the option list border and box
-draw_nine_slice(s_textbox, x, y, x+width, y+height);
+            <string>/// Draw the option list
+event_inherited();
+
+// Draw the options list
+for (var i = index-1; i&lt;=index+1; i++){
+    if (i &gt;= 0 &amp;&amp; i &lt; ds_list_size(options)) {
+        var option = options[| i];
+        var color = purple_gray;
+        if (i == index) color = c_white;
+        draw_text_colour(x+16, y+8+10*(i+1-index), option[? "text"], color, color, color, color, 1);
+    }
+   
+}
+
+// Draw the caret for the option selection
+draw_sprite(s_ui_caret, 0, x+6, y+6+10);
 </string>
           </argument>
         </arguments>

@@ -12,5 +12,6 @@ if (o_battle.play && instance_exists(stats_object)){
         state = battle_action_state;
         o_battle.play = false;
         action_meter = 0;
+        stats_object.defend = false;
     }
 }

@@ -18,6 +18,9 @@ if (!is_enemy) stats_object = o_player_stats;
 if (is_enemy) {
     stats = get_stats_from_class(name);
     draw_health = stats[? "health"];
+    defend = false;
+    // create the actions list :
+    actions = create_action_list();
 }
 
 // Set the image_xscale

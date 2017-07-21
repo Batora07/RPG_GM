@@ -250,6 +250,8 @@
         <script>scripts\get_stats_from_class.gml</script>
         <script>scripts\calculate_health.gml</script>
         <script>scripts\set_hitflash.gml</script>
+        <script>scripts\create_action_list.gml</script>
+        <script>scripts\action_defend.gml</script>
       </scripts>
       <script>scripts\battle_set_sprite.gml</script>
     </scripts>
@@ -287,10 +289,16 @@
       <scripts name="Menu Option Scripts">
         <script>scripts\menu_option_items.gml</script>
       </scripts>
+      <scripts name="Action Option scripts">
+        <script>scripts\action_option_use_ui.gml</script>
+        <script>scripts\action_option_use.gml</script>
+        <script>scripts\action_option_info.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Data scripts">
       <script>scripts\get_class_data.gml</script>
       <script>scripts\get_item_data.gml</script>
+      <script>scripts\get_action_data.gml</script>
     </scripts>
     <scripts name="Items scripts">
       <script>scripts\pickup_item.gml</script>
@@ -340,8 +348,6 @@
       <object>objects\o_decoration_parent</object>
     </objects>
     <objects name="UI">
-      <object>objects\o_battle_unit_ui</object>
-      <object>objects\o_battle_ui</object>
       <object>objects\o_dialog</object>
       <object>objects\o_speaker</object>
       <object>objects\o_ui_parent</object>
@@ -353,6 +359,15 @@
       <object>objects\o_item_list_ui</object>
       <object>objects\o_item_option_use_ui</object>
       <object>objects\o_item_use_ui</object>
+      <objects name="Battle UI">
+        <object>objects\o_battle_ui</object>
+        <object>objects\o_battle_unit_ui</object>
+        <object>objects\o_levelup</object>
+        <object>objects\o_shine</object>
+        <object>objects\o_levelup_arrow</object>
+        <object>objects\o_action_list_ui</object>
+        <object>objects\o_action_use_ui</object>
+      </objects>
     </objects>
   </objects>
   <rooms name="rooms">

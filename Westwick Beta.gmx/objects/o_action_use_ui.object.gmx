@@ -4,8 +4,8 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <persistent>0</persistent>
+  <parentName>o_option_list_ui</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,36 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Load the data
-classes = get_class_data();
-items = get_item_data();
-actions = get_action_data();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Destroy the ds maps
-ds_map_destroy(classes);
-ds_map_destroy(items);
-ds_map_destroy(actions);
+            <string>/// Initialize the action ui
+event_inherited();
+width = 56;
+height = 40;
+
+// create the options list
+options = ds_list_create();
+var option_index = 0;
+options[| option_index++] = create_option("Use", action_option_use);
+options[| option_index++] = create_option("Info", action_option_info);
+mark_option_list(options);
 </string>
           </argument>
         </arguments>
