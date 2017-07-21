@@ -65,12 +65,14 @@ y = lerp(y, targety, .1);
 
 if (point_distance(x, y, x, 160) &lt;= 16 &amp;&amp; enabled) {
     // move ui options
-    if (o_input.right_pressed){
+    if (o_input.right_pressed &amp;&amp; index &lt; 2){
         index += 1;
+        audio_play_sound_effect(a_menu_move, false, 50);
     }
     
-    if (o_input.left_pressed){
+    if (o_input.left_pressed &amp;&amp; index &gt; 0){
         index -= 1;
+        audio_play_sound_effect(a_menu_move, false, 50);
     }
     
     // clamp the value
@@ -83,6 +85,7 @@ if (point_distance(x, y, x, 160) &lt;= 16 &amp;&amp; enabled) {
                 var action_list = instance_create(bbox_left+13, targety - sprite_height/2, o_action_list_ui);            
                 action_list.y -= action_list.height +4;
                 action_list.parent = id; 
+                audio_play_sound_effect(a_menu_move, false, 50);
             break;
                 
             case ITEM :
@@ -90,10 +93,12 @@ if (point_distance(x, y, x, 160) &lt;= 16 &amp;&amp; enabled) {
                 var item_list = instance_create(bbox_left +13, targety - sprite_height/2, o_item_list_ui);
                 item_list.y -= item_list.height+4;
                 item_list.parent = id; 
+                audio_play_sound_effect(a_menu_move, false, 50);
             break;
                 
             case RUN :
-                show_message("RUN");
+                show_debug_message("RUN");
+                audio_play_sound_effect(a_menu_move, false, 50);
             break;
         }
     }

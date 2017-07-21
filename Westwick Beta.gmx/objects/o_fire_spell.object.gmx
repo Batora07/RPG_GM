@@ -50,7 +50,11 @@ image_index = ceil(o_player_battle_unit.image_index) - o_player_battle_unit.imag
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (animation_hit_frame(6)) {
+            <string>if (animation_hit_frame(2)) {
+    audio_play_sound_effect(a_firespell_with_impact, false, 75);
+}
+
+if (animation_hit_frame(6)) {
     view_screenshake(4, seconds_to_steps(.2));
     
     // hit the enemy

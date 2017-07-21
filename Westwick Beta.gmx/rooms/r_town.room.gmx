@@ -52,10 +52,10 @@
   </views>
   <instances>
     <instance objName="o_elizabeth" x="192" y="96" name="inst_61FBBA1F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_start_room_loader" x="-8" y="-32" name="inst_CBCBC2C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_solid" x="96" y="48" name="inst_A14B8234" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_solid" x="112" y="48" name="inst_D597CB0E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_solid" x="128" y="48" name="inst_9B81B2B9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="o_solid" x="144" y="48" name="inst_F4A20D9C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_solid" x="160" y="48" name="inst_F04C0DB4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_solid" x="160" y="32" name="inst_9D877FC1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_solid" x="160" y="16" name="inst_0043CE04" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -79,6 +79,28 @@
     <instance objName="o_solid" x="240" y="-32" name="inst_B4D7B3F4" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="o_adam" x="240" y="76" name="inst_832ECB1D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_cutscene_parent" x="104" y="96" name="inst_905830A2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_door" x="144" y="48" name="inst_0B06F561" locked="0" code="sound = a_use_door;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_door" x="256" y="48" name="inst_A29272AA" locked="0" code="sound = a_use_door;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_door" x="49" y="63" name="inst_7780718E" locked="0" code="sound = a_use_door;&#xA;" scaleX="0.939999997615814" scaleY="1.19000005722046" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="16" y="64" name="inst_86298FF6" locked="0" code="" scaleX="1.75" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="64" y="64" name="inst_37BCCDB9" locked="0" code="" scaleX="0.810000002384186" scaleY="1.05999994277954" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="0" y="0" name="inst_63771AA2" locked="0" code="" scaleX="10" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="98" y="28" name="inst_FB039106" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="0" y="14" name="inst_C71230BB" locked="0" code="" scaleX="1" scaleY="5" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="63" y="28" name="inst_DAEB2F45" locked="0" code="" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="0" y="147" name="inst_57530CCD" locked="0" code="" scaleX="10" scaleY="1.5" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="147" y="161" name="inst_AF04FCE0" locked="0" code="" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="238" y="160" name="inst_0BABCA98" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="193" y="172" name="inst_D2953F87" locked="0" code="" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="240" y="160" name="inst_A6B1A39A" locked="0" code="" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="256" y="144" name="inst_701F90D4" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="256" y="144" name="inst_4D989039" locked="0" code="" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="304" y="128" name="inst_CD39EA4A" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="304" y="80" name="inst_FC85F360" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="304" y="0" name="inst_F435FF94" locked="0" code="" scaleX="1" scaleY="5" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="240" y="0" name="inst_28B46BB4" locked="0" code="" scaleX="5" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="240" y="16" name="inst_CAA73599" locked="0" code="" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="o_solid" x="272" y="48" name="inst_BF36BD5A" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="b_dirt" x="288" y="112" w="16" h="16" xo="16" yo="32" id="10000097" name="inst_ADAF3042" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

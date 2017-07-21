@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,69 +25,89 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// initialize the cutscene
-action = 0;
-last_room = noone;
-persistent = true;
+            <string>/// initialize a few variables
+fade = true;
+fade_spd = .02;
 
-if (ds_map_find_value(global.save_data, save_key())) {
-    instance_destroy();
-    exit;
-}
+// create the music emitter
+music_emitter = audio_emitter_create();
+music_volume = 0;
+music_max_volume = 1;
 
-// set all characters to the cutscene state
-if (instance_exists(o_character_parent)) {
-    with (o_character_parent){
-        state = character_cutscene_state;
-        image_speed = 0;
-        image_index = 0;
+// create the sound emitter
+sfx_emitter = audio_emitter_create();
+sfx_volume = .5;
+sfx_max_volume = .5;
+
+// store current song, previous song and next song
+previous_sound = noone;
+current_song = noone;
+next_song = a_town_music;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// play the song
+if (audio_exists(next_song)) {
+    if (music_volume &gt; 0) {
+        // fade out
+        if (fade) {
+            music_volume = approach(music_volume, 0, fade_spd);
+        } else {
+            music_volume = 0;
+        }
+    } else {
+        // update the song variables
+        previous_song = current_song;
+        current_song = next_song;
+        next_song = noone;
+        
+        // stop the previous song
+        if (audio_exists(previous_song)) {
+            audio_stop_sound(previous_song);
+        }
     }
-} 
-
-// set the view's state 
-if (instance_exists(o_view)) {
-    with (o_view) {
-        state = view_cutscene_state;
+} else {
+    // fade in
+    if (fade) {
+        music_volume = approach(music_volume, music_max_volume, fade_spd);
+    } else {
+        music_volume = music_max_volume;
     }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// set Elizabeth back to the move state
-if (instance_exists(o_elizabeth)) {
-    o_elizabeth.state = elizabeth_move_state;
+
+// play the song
+if (!audio_is_playing(current_song) &amp;&amp; audio_exists(current_song)) {
+    audio_play_sound_on(music_emitter, current_song, true, 4);
 }
 
-if (instance_exists(o_view)) {
-    o_view.state = view_follow_elizabeth_state;
-}
-
-global.save_data[? save_key()] = true;
+// update the audio volume
+audio_emitter_gain(music_emitter, music_volume);
+audio_emitter_gain(sfx_emitter, sfx_volume);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="7" enumb="5">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -104,13 +124,18 @@ global.save_data[? save_key()] = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// wait alarm
+            <string>if (room == r_battle) {
+    // play the previous song
+    audio_set_next_song(previous_song, true);
+    sfx_volume = .5;
+    sfx_max_volume = .5;
+}
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="2">
+    <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -127,13 +152,35 @@ global.save_data[? save_key()] = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch (action) {
-    case 0 : character_move_to(o_elizabeth, 32, 0, true, o_elizabeth.spd, 0); break;
-    case 1 : character_show_dialog(o_elizabeth, array("Hey this is a cutscene", "here is some more dialog")); break;
-    case 2 : character_face_direction(o_elizabeth, DOWN, .5); break;
-    case 3 : cutscene_show_message("The cutscene is over"); break;
-    default : instance_destroy();
+            <string>if (room == r_battle) {
+    sfx_volume = .8;
+    sfx_max_volume = .8;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// destroy the emitter
+audio_emitter_free(music_emitter);
+audio_emitter_free(sfx_emitter);
 </string>
           </argument>
         </arguments>

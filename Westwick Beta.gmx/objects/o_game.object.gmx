@@ -40,6 +40,10 @@ room_goto_next();
 
 // Create the last room variable
 last_room = r_town;
+
+// Create save data
+global.save_data = ds_map_create();
+global.load = false;
 </string>
           </argument>
         </arguments>
@@ -64,6 +68,29 @@ last_room = r_town;
             <kind>1</kind>
             <string>/// Create Depth on tiles
 set_tile_depth(TREE_TILES, -64);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>ds_map_destroy(global.save_data);
 </string>
           </argument>
         </arguments>

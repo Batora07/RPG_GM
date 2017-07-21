@@ -90,8 +90,12 @@ ds_list_destroy(options);
             <kind>1</kind>
             <string>/// Navigate the options
 if (!enabled) exit;
+var last_index = index;
 index += o_input.down_pressed - o_input.up_pressed;
 index = clamp(index, 0, ds_list_size(options)-1);
+if (index != last_index) {
+    audio_play_sound_effect(a_menu_move, false, 50);
+}
 
 // Exit the option list
 if (o_input.back){
@@ -102,6 +106,11 @@ if (o_input.back){
 if (o_input.action &amp;&amp; ds_list_size(options) &gt; 0) {
     var option = options[| index];
     script_execute(option[? "script"]);
+    if (!instance_exists(child)) {
+        audio_play_sound_effect(a_menu_select, false, 55);
+    } else {
+        audio_play_sound_effect(a_menu_move, false, 50);
+    }
     o_input_action = false;
 }
 </string>

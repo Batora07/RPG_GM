@@ -5,13 +5,25 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\a_type_letter</sound>
-    <sound>sound\a_voice</sound>
-    <sound>sound\a_use_door</sound>
-    <sound>sound\a_sword_hit</sound>
     <sound>sound\a_town_music</sound>
     <sound>sound\a_battle_music</sound>
     <sound>sound\a_graveyard_music</sound>
+    <sounds name="Sound Effects">
+      <sound>sound\a_spider_die</sound>
+      <sound>sound\a_sonar_with_impact</sound>
+      <sound>sound\a_potion</sound>
+      <sound>sound\a_menu_select</sound>
+      <sound>sound\a_menu_move</sound>
+      <sound>sound\a_levelup</sound>
+      <sound>sound\a_item_pickup</sound>
+      <sound>sound\a_impact_defend</sound>
+      <sound>sound\a_impact</sound>
+      <sound>sound\a_firespell_with_impact</sound>
+      <sound>sound\a_enter_next_area</sound>
+      <sound>sound\a_defend</sound>
+      <sound>sound\a_attack_swordswing</sound>
+      <sound>sound\a_use_door</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="Character Sprites">
@@ -220,6 +232,7 @@
       <script>scripts\seconds_to_steps.gml</script>
       <script>scripts\is_in_array.gml</script>
       <script>scripts\get_image_speed_from_frames.gml</script>
+      <script>scripts\list_to_array.gml</script>
     </scripts>
     <scripts name="Sprite Scripts">
       <script>scripts\animation_end.gml</script>
@@ -294,6 +307,10 @@
       </scripts>
       <scripts name="Menu Option Scripts">
         <script>scripts\menu_option_items.gml</script>
+        <script>scripts\menu_option_save.gml</script>
+        <script>scripts\menu_option_load.gml</script>
+        <script>scripts\menu_option_exit.gml</script>
+        <script>scripts\menu_option_stats.gml</script>
       </scripts>
       <scripts name="Action Option scripts">
         <script>scripts\action_option_use_ui.gml</script>
@@ -306,6 +323,9 @@
       <script>scripts\get_item_data.gml</script>
       <script>scripts\get_action_data.gml</script>
       <script>scripts\get_sprite_data.gml</script>
+      <script>scripts\save_game.gml</script>
+      <script>scripts\load_game.gml</script>
+      <script>scripts\save_key.gml</script>
     </scripts>
     <scripts name="Items scripts">
       <script>scripts\pickup_item.gml</script>
@@ -319,6 +339,12 @@
       <script>scripts\wait.gml</script>
       <script>scripts\character_move_to.gml</script>
       <script>scripts\character_show_dialog.gml</script>
+      <script>scripts\cutscene_show_message.gml</script>
+      <script>scripts\character_face_direction.gml</script>
+    </scripts>
+    <scripts name="Audio Scripts">
+      <script>scripts\audio_set_next_song.gml</script>
+      <script>scripts\audio_play_sound_effect.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -332,6 +358,7 @@
       <object>objects\o_data</object>
       <object>objects\o_view</object>
       <object>objects\o_view_parent</object>
+      <object>objects\o_audio_player</object>
     </objects>
     <objects name="Misc">
       <object>objects\o_solid</object>
@@ -341,6 +368,7 @@
       <object>objects\o_fade_transition</object>
       <object>objects\o_last_encounter</object>
       <object>objects\o_interactable_parent</object>
+      <object>objects\o_start_room_loader</object>
     </objects>
     <objects name="Battle">
       <object>objects\o_battle_transition</object>

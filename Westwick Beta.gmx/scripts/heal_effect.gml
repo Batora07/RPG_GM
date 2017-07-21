@@ -6,5 +6,6 @@ var amount = args_list[| 0];
 if (instance_exists(o_player_stats)) {
     with(o_player_stats) {
         stats[? "health"] = min(stats[? "health"]+amount, stats[? "maxHealth"]);
+        audio_play_sound_effect(a_potion, false, 60);
     }
 }

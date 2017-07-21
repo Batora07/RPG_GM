@@ -140,6 +140,7 @@ if (stats[? "experience"] &gt;= stats[? "maxExperience"]) {
 
     // Update the stats
     level++;
+    audio_play_sound_effect(a_levelup, false, 70);
     stats[? "experience"] = stats[? "experience"]-stats[? "maxExperience"];
     stats[? "maxExperience"] = level*10;
     stats[? "health"] = calculate_health(level, class[? "health"]);
