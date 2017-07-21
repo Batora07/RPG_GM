@@ -26,9 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>/// initialize the dialog object
-text[0] = "Test,, dialog";
+text[0] = "Test dialog";
 text[1] = "Test dialog 2";
-
 text_visible = "";
 text_page = 0;
 text_count = 0;
@@ -104,7 +103,7 @@ if (o_input.action){
         text_count = 0;
         text_visible = "";
         if (text_page &gt; array_length_1d(text)-1) {
-            if(cutscene != noone) {
+            if(instance_exists(cutscene)) {
                 cutscene.action++;
             }
             instance_destroy();

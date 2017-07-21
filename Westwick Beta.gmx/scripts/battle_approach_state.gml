@@ -7,6 +7,10 @@ var spd = min(28, 64/image_number);
 var frames = get_frames(targetx, xstart, spd);
 image_speed = get_image_speed_from_frames(frames, image_number);
 
+// set the view state
+o_battle_view.target[? "x"] = targetx - 32 * image_xscale;
+o_battle_view.state = battle_view_focus_state;
+
 // Move to target
 x = approach(x, targetx, spd);
 if (x == targetx) {

@@ -13,5 +13,7 @@ if (x - xstart > 24 && stats_object.stats[? "health"] <= 0) {
 // return to the wait state
 if (animation_end()) {
     state = battle_wait_state;
+    // set the view state
+    o_battle_view.state = battle_view_idle_state;
     x = xstart;
 }

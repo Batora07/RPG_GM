@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>o_speaker</parentName>
+  <parentName>o_character_parent</parentName>
   <maskName>s_mask</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -34,6 +34,12 @@ dialog_object = o_dialog;
 
 // Portrait
 portrait = s_adam_portrait;
+
+// create the sprite array
+sprite[RIGHT] = s_adam;
+sprite[LEFT] = s_adam;
+sprite[DOWN] = s_adam;
+sprite[UP] = s_adam;
 
 // Dialog
 var i = 0;

@@ -121,6 +121,7 @@
       <sprite>sprites\s_shine</sprite>
       <sprite>sprites\s_sonar_attack</sprite>
       <sprite>sprites\s_shield</sprite>
+      <sprite>sprites\s_fire_spell</sprite>
     </sprites>
     <sprites name="Items">
       <sprite>sprites\s_small_log</sprite>
@@ -246,6 +247,9 @@
           <script>scripts\battle_wait_state.gml</script>
           <script>scripts\battle_hit_state.gml</script>
           <script>scripts\battle_death_state.gml</script>
+          <script>scripts\battle_ranged_attack_state.gml</script>
+          <script>scripts\battle_fire_spell_state.gml</script>
+          <script>scripts\battle_sonar_spell_state.gml</script>
         </scripts>
         <script>scripts\get_stats_from_class.gml</script>
         <script>scripts\calculate_health.gml</script>
@@ -265,10 +269,12 @@
       <script>scripts\view_follow_elizabeth_state.gml</script>
       <script>scripts\activate_interactable_object.gml</script>
       <script>scripts\elizabeth_talking_state.gml</script>
+      <script>scripts\character_cutscene_state.gml</script>
     </scripts>
     <scripts name="View Scripts">
       <script>scripts\view_approach.gml</script>
       <script>scripts\view_screenshake.gml</script>
+      <script>scripts\view_cutscene_state.gml</script>
     </scripts>
     <scripts name="UI scripts">
       <script>scripts\format_text.gml</script>
@@ -299,6 +305,7 @@
       <script>scripts\get_class_data.gml</script>
       <script>scripts\get_item_data.gml</script>
       <script>scripts\get_action_data.gml</script>
+      <script>scripts\get_sprite_data.gml</script>
     </scripts>
     <scripts name="Items scripts">
       <script>scripts\pickup_item.gml</script>
@@ -308,8 +315,16 @@
         <script>scripts\heal_effect.gml</script>
       </scripts>
     </scripts>
+    <scripts name="Cutscenes scripts">
+      <script>scripts\wait.gml</script>
+      <script>scripts\character_move_to.gml</script>
+      <script>scripts\character_show_dialog.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
+    <objects name="Cutscenes">
+      <object>objects\o_cutscene_parent</object>
+    </objects>
     <objects name="Main">
       <object>objects\o_game</object>
       <object>objects\o_input</object>
@@ -337,10 +352,16 @@
         <object>objects\o_enemy_battle_unit</object>
         <object>objects\o_battle_unit</object>
       </objects>
+      <objects name="Battle Effects">
+        <object>objects\o_projectile_parent</object>
+        <object>objects\o_fire_spell</object>
+        <object>objects\o_sonar_spell</object>
+      </objects>
     </objects>
     <objects name="Characters">
       <object>objects\o_elizabeth</object>
       <object>objects\o_adam</object>
+      <object>objects\o_character_parent</object>
     </objects>
     <objects name="Decorations">
       <object>objects\o_stump</object>

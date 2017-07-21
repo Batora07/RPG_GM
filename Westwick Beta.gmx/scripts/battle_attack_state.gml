@@ -8,6 +8,10 @@ if (animation_hit_frame(1)) {
         deal_damage(id, foe, chance(stats_object.stats[? "critical"]/100), 1);
         set_hitflash(foe, room_speed/2);
         foe.state = battle_hit_state;
+        view_screenshake(4, seconds_to_steps(.2));
+        
+        // set the view state
+        o_battle_view.state = battle_view_idle_state;
     }
 }
 

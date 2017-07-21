@@ -78,6 +78,7 @@
     <instance objName="o_solid" x="192" y="-32" name="inst_B9BB037C" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="o_solid" x="240" y="-32" name="inst_B4D7B3F4" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="o_adam" x="240" y="76" name="inst_832ECB1D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_cutscene_parent" x="104" y="96" name="inst_905830A2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="b_dirt" x="288" y="112" w="16" h="16" xo="16" yo="32" id="10000097" name="inst_ADAF3042" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
