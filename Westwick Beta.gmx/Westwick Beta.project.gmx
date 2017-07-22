@@ -283,6 +283,7 @@
       <script>scripts\activate_interactable_object.gml</script>
       <script>scripts\elizabeth_talking_state.gml</script>
       <script>scripts\character_cutscene_state.gml</script>
+      <script>scripts\move_intented_direction.gml</script>
     </scripts>
     <scripts name="View Scripts">
       <script>scripts\view_approach.gml</script>
@@ -369,6 +370,7 @@
       <object>objects\o_last_encounter</object>
       <object>objects\o_interactable_parent</object>
       <object>objects\o_start_room_loader</object>
+      <object>objects\o_game_over</object>
     </objects>
     <objects name="Battle">
       <object>objects\o_battle_transition</object>

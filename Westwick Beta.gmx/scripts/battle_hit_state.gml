@@ -6,7 +6,7 @@ var input = (image_index/image_number) * pi;
 x = xstart-sin(input) * 32 * image_xscale;
 
 // check for death
-if (x - xstart > 24 && stats_object.stats[? "health"] <= 0) {
+if (abs(x - xstart) > 24 && stats_object.stats[? "health"] <= 0) {
     state = battle_death_state;
 }
 

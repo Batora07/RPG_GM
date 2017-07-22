@@ -97,7 +97,10 @@ if (point_distance(x, y, x, 160) &lt;= 16 &amp;&amp; enabled) {
             break;
                 
             case RUN :
-                show_debug_message("RUN");
+                o_player_battle_unit.state = battle_wait_state;
+                var transition = instance_create(0, 0, o_fade_transition);
+                transition.next_room = o_game.last_room;
+                depth = 100;
                 audio_play_sound_effect(a_menu_move, false, 50);
             break;
         }

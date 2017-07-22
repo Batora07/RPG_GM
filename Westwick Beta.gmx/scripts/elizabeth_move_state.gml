@@ -4,7 +4,9 @@ var hspd = (o_input.right - o_input.left) * spd;
 var vspd = (o_input.down - o_input.up) * spd;
 
 /// Move
-move(hspd, vspd);
+if (!move(hspd, vspd, true)) {
+    move_intented_direction(hspd, vspd, 10);
+}
 
 // Check for the menu
 if (o_input.back){
